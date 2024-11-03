@@ -4,17 +4,11 @@ import cookieParser from 'cookie-parser'
 
 const app = express()
 
-const allowedOrigins = [process.env.CORS_ORIGIN, 'upload-1-5q0t.onrender.com'];
 app.use(cors({
-    origin: (origin, callback) => {
-        if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
-    credentials: true,
+    origin: 'https://upload-2-zxyx.onrender.com', 
+    credentials: true 
 }));
+
 
 app.use(cookieParser())
 // built-in middleware for parsing JSON bodies
