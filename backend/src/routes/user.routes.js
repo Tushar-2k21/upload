@@ -35,7 +35,7 @@ router.route("/refresh-token").post(refreshAccessToken)
 router.route("/avatar").patch(verifyJWT, upload.single('avatar'),updateUserAvatar)  // 'avatar' should match form key name
 router.route("/watch-history").get(verifyJWT, getWatchHistory)
 
-router.route("/watch-history").delete(verifyJWT, deleteWatchHistory);
+router.route('/watch-history').delete(verifyJWT, deleteWatchHistory);
 
 router.route("/coverImage").patch(verifyJWT, upload.single('coverImage'),updateUserCoverImage)
 
