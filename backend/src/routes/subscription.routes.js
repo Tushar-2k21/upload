@@ -3,9 +3,10 @@ import { toggleSubscription, getUserChannelSubscribers, getSubscribedChannels } 
 import { verifyJWT } from "../middlewares/auth.middleware.js";
 const router = Router();
 
-router.post("/toggle/:channelId", verifyJWT, toggleSubscription);
-router.get("/subscribers/:channelId", verifyJWT, getUserChannelSubscribers);
-router.get("/subscribed", verifyJWT, getSubscribedChannels);
+// router.post(, verifyJWT, toggleSubscription);
 
+router.route("/toggle/:channelId").post(verifyJWT, toggleSubscription)
+router.route("/subscribers/:channelId").get(verifyJWT, getUserChannelSubscribers)
+router.route("/subscribed").get(verifyJWT, getSubscribedChannels)
 
 export default router;

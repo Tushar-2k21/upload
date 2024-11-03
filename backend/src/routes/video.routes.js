@@ -18,14 +18,14 @@ router.route("/upload").post(upload.fields(
        
     ]), uploadVideo)
 
-router.get("/search", getSearchResults);
+router.route("/search").get(getSearchResults);
 
 router.route("/:id").delete(deleteVideo)
 router.route("/").get(getAllVideos)
-router.get("/subscribedVideos", getSubscribedVideos);
+router.route("/subscribedVideos").get(getSubscribedVideos);
 router.route("/:id").get(getVideoById)
-router.patch("/incrementViewCount/:id", incrementViewCount);
-router.get("/related/:id", getRelatedVideos);
+router.route("/incrementViewCount/:id").patch(incrementViewCount);
+router.route("/related/:id").patch(getRelatedVideos);
 
 
 
