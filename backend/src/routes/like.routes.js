@@ -9,6 +9,6 @@ router.route('/toggle-video-dislike/:videoId').post(verifyJWT, toggleVideoDislik
 router.route('/liked-videos').get(verifyJWT, getLikedVideos)
 router.route('/disliked-videos').get(verifyJWT, getDislikedVideos)
 
-router.post('/toggle-comment-like/:commentId').post(verifyJWT, toggleCommentLike)
+router.route('/toggle-comment-like/:commentId').post(verifyJWT, toggleCommentLike)
 
 export default router;
