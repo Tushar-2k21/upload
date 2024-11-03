@@ -5,7 +5,7 @@ import {deleteVideo, getAllVideos, getVideoById, uploadVideo, incrementViewCount
 
 const router = Router();
 router.use(verifyJWT);
-router.route("/upload").post(upload.fields(
+router.route('/upload').post(upload.fields(
     [
         {
             name: "video",
@@ -18,14 +18,14 @@ router.route("/upload").post(upload.fields(
        
     ]), uploadVideo)
 
-router.route("/search").get(getSearchResults);
+router.get('/search', getSearchResults);
 
-router.route("/:id").delete(deleteVideo)
-router.route("/").get(getAllVideos)
-router.route("/subscribedVideos").get(getSubscribedVideos);
-router.route("/:id").get(getVideoById)
-router.route("/incrementViewCount/:id").patch(incrementViewCount);
-router.route("/related/:id").patch(getRelatedVideos);
+router.route('/:id').delete(deleteVideo)
+router.route('/').get(getAllVideos)
+router.get('/subscribedVideos', getSubscribedVideos);
+router.route('/:id').get(getVideoById)
+router.patch('/incrementViewCount/:id', incrementViewCount);
+router.get('/related/:id', getRelatedVideos);
 
 
 
