@@ -7,24 +7,25 @@ import {
     getPlaylistById,
     deletePlaylist,
     updatePlaylist
-} from "../controllers/playlist.controller.js";
+} from '../controllers/playlist.controller.js';
 
 import { verifyJWT } from "../middlewares/auth.middleware.js";
 
 const router = Router();
 
-router.route("/:username").get(getAllUserPlaylists);
+router.route('/:username').get(getAllUserPlaylists);
 
-router.route("/:playlistId").get(getPlaylistById);
+router.route('/:playlistId').get(getPlaylistById);
 
 // secured routes
-router.route("/").post(verifyJWT, createPlaylist);
+router.route('/').post(verifyJWT, createPlaylist);
 
-router.route("/:playlistId")
+router.route('/:playlistId')
     .delete(verifyJWT, deletePlaylist)
     .put(verifyJWT, updatePlaylist);
 
-router.route("/:playlistId/video")
+
+router.route('/:playlistId/video')
     .put(verifyJWT, addVideoToPlaylist)
     .delete(verifyJWT, removeVideoFromPlaylist);
 
