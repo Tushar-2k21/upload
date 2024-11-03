@@ -5,9 +5,9 @@ import cookieParser from 'cookie-parser'
 const app = express()
 
 app.use(cors({
-    origin: 'https://upload-2-zxyx.onrender.com', 
-    credentials: true 
-}));
+    origin: process.env.CORS_ORIGIN,
+    credentials: true, // Allow credentials (cookies)
+}))
 
 
 app.use(cookieParser())
